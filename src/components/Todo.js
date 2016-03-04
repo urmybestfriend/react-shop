@@ -1,3 +1,5 @@
+'use strict'
+
 import React, { PropTypes } from 'react';
 import { deleteTodo, completeTodo } from 'actions/todos';
 import PureComponent from './PureComponent';
@@ -43,3 +45,4 @@ export default class Todo extends PureComponent {
         );
     }
 }
+
