@@ -1,3 +1,5 @@
+'use strict'
+
 import React from 'react';
 import shallowEqual from 'react-pure-render/shallowEqual';
 

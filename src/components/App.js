@@ -1,3 +1,5 @@
+'use strict'
+
 import React, { PropTypes } from 'react';
 import PureComponent from './PureComponent';
 import { connect } from 'react-redux';
