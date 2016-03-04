@@ -5,3 +5,4 @@ require('babel-register')({
 module.exports = function() {
 	require('./app');
 }
+
