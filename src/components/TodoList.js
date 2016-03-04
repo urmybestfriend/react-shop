@@ -1,3 +1,5 @@
+'use strict'
+
 import React, { PropTypes } from 'react';
 import PureComponent from './PureComponent';
 import Todo from './Todo';
@@ -20,7 +22,7 @@ export default class TodoList extends PureComponent {
                 return this.props.todoList;
         }
     }
-    
+
     render() {
         const todoList = this.filterTodoList();
         return (
