@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 import React, { PropTypes } from 'react';
 import { deleteAllTodos, changeFilter } from 'actions/todos';

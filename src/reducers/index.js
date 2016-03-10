@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 import { combineReducers } from 'redux';
 import todos from './todos';
