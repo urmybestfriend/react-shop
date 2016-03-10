@@ -26,7 +26,7 @@ class App extends PureComponent {
                     <Button href="#">Middle</Button>
                 </ButtonGroup>
 
-                <div class = 'container'> sadsad</div>
+                <div className = 'container'> sadsad</div>
 
                 <div className="todos">
                     <h1>ToDo App</h1>
