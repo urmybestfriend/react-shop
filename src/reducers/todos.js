@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 import * as types from 'constants/ActionTypes';
 import { List, Map } from 'immutable';
