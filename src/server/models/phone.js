@@ -14,6 +14,8 @@ let PhoneSchema = new mongoose.Schema({
 	ram: 'number',
 	camera: 'number',
 	gps: 'boolean'
+}, {
+	versionKey: false
 });
 
 export default mongoose.model('phones', PhoneSchema);
