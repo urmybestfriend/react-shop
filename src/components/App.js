@@ -7,7 +7,6 @@ import TodoList from './TodoList';
 import AddTodo from './AddTodo';
 import Footer from './Footer';
 import { Button } from 'react-bootstrap';
-import { ButtonGroup } from 'react-bootstrap';
 
 class App extends PureComponent {
     static propTypes = {
@@ -20,14 +19,8 @@ class App extends PureComponent {
         const { dispatch, activeFilter, todoList } = this.props;
         return (
             <div className="app">
-                <Button bsStyle="danger">Danger</Button>
-                <ButtonGroup justified>
-                    <Button href="#">Left</Button>
-                    <Button href="#">Middle</Button>
-                </ButtonGroup>
-
-                <div className = 'container'> sadsad</div>
-
+                <Button bsStyle="danger"> Danger </Button>
+                <div className='container'> OK </div>
                 <div className="todos">
                     <h1>ToDo App</h1>
                     <AddTodo dispatch={dispatch} />
