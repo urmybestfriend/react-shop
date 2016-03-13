@@ -1,0 +1,17 @@
+{
+	"mongo": {
+		"db": "organizer-dev",
+		"host": "localhost",
+		"port": 27017,
+		"options": {
+			"safe": true
+		}
+	},
+	"express": {
+		"port": 8081
+	},
+	"app": {
+    	"title": "Organizer: local",
+    	"api": "/"
+    }
+}
