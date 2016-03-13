@@ -1,10 +1,7 @@
-'use strict'
+'use strict';
 
-require('babel-register')({
-	presets: ['es2015']
-});
+require('babel-core/register');
 
-module.exports = function() {
-	require('./app');
-}
+delete process.env.BROWSER;
 
+require('./app.js').start();
