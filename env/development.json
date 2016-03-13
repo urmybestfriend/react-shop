@@ -1,6 +1,6 @@
 {
 	"mongo": {
-		"db": "organizer-dev",
+		"db": "Shop",
 		"host": "localhost",
 		"port": 27017,
 		"options": {
@@ -8,10 +8,10 @@
 		}
 	},
 	"express": {
-		"port": 8081
+		"port": 3003
 	},
 	"app": {
-    	"title": "Organizer: local",
+    	"title": "Shop",
     	"api": "/"
     }
 }

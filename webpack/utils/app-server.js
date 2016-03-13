@@ -19,7 +19,7 @@ var startApp = function () {
         if (message.match(/^online$/)) {
             if(!isStarted) {
                 isStarted = true;
-                opener('http://localhost:8080');
+                opener('http://localhost:3000');
 
                 watch(
                     WATCH_PATH,

@@ -13,7 +13,7 @@ export default (app) => {
             app.mongo = null;
         }
 
-        if (env.get('ORGANIZER') === 'development') {
+        if (env.get('SHOP') === 'development') {
             mongoose.set('debug', (collection, method, query, doc) => {
                 console.log('mongo data: ', collection, method, query, doc);
             });
