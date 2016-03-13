@@ -3,7 +3,7 @@ var Webpack = require('webpack'),
     WebpackDevServer = require('webpack-dev-server'),
     webpackConfig = Webpack(require('./webpack/webpack.config.js')),
     server = {
-        port: 8080,
+        port: 3000,
         host: 'localhost',
 
         options: {
@@ -17,7 +17,7 @@ var Webpack = require('webpack'),
             noInfo: true,
             proxy: [{
                 path: '*',
-                target: 'http://localhost:8081'
+                target: 'http://localhost:3003'
             }],
             historyApiFallback: true
         }

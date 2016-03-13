@@ -5,11 +5,11 @@ var path = require('path');
 var mDockerHost = process.env.IPLN_MONGO_PORT_27017_TCP_ADDR;
 var mDockerPort = process.env.IPLN_MONGO_PORT_27017_TCP_PORT;
 
-if(!process.env.ORGANIZER) {
-    process.env.ORGANIZER = 'development';
+if(!process.env.SHOP) {
+    process.env.SHOP = 'development';
 }
 
-var env = process.env.ORGANIZER;
+var env = process.env.SHOP;
 
 if (env !== undefined) {
     env = env.trim();

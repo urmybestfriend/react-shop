@@ -42,13 +42,13 @@ export default class PhonesTable extends React.Component {
 				<Well>It is moch! Later here will be real list of phones</Well>
 				<Accordion>
 				{
-					phones.map((phone) => {
+					phones.map((phone, index) => {
 						const header = `${phone.mark} - ${phone.model}`;
-						return <Panel bsStyle="success" header={header} eventKey={header}>
+						return <Panel bsStyle="success" header={header} eventKey={header} key={index}>
 							<ListGroup>
-								<ListGroupItem header="RAM" bsStyle="primary">{phone.ram}</ListGroupItem>
-								<ListGroupItem header="Camera" bsStyle="primary">{phone.camera}</ListGroupItem>
-								<ListGroupItem header="Color" bsStyle="primary">{phone.color}</ListGroupItem>
+								<ListGroupItem header="RAM" bsStyle="info">{phone.ram}</ListGroupItem>
+								<ListGroupItem header="Camera" bsStyle="info">{phone.camera}</ListGroupItem>
+								<ListGroupItem header="Color" bsStyle="info">{phone.color}</ListGroupItem>
 							</ListGroup>
 						</Panel>
 					})

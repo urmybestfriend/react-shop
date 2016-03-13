@@ -7,7 +7,7 @@ var NODE_ENV = process.env.NODE_ENV; //variable of the scope
 
 module.exports = {
     entry: {
-        organizer: [
+        shop: [
             'webpack-dev-server/client',
             'webpack/hot/dev-server',
             path.join(__dirname, '../src/client/')
