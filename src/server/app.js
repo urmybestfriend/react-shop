@@ -1,16 +1,15 @@
-'use strict'
+'use strict';
 
-let express = require('express');
+import express from 'express';
+import mongoose from 'mongoose';
+import router from './routes/api';
+
 let app = express();
 
-app.get('/', function (req, res) {
-  	res.send('Hello World!');
-});
+mongoose.connect('mongodb://127.0.0.1:27017/shop');
 
-app.listen(3003, function () {
- 	console.log('Server is listening on port 3003');
-});
-
-module.exports = app;
-
-	
+app.use('/api/v1', router);
+app.listen('3003', function() {
+		console.log('server is started on port 3000');
+	}
+);
