@@ -1,6 +1,17 @@
+# temporary files
+*~
+
+# apt-cacher-ng and sinopia caches
+caches/
+
+# log files
+*.log
+
+# npm modules
 node_modules/
-coverage/
-dist/
-config/config.js
-.sass-cache/
+
+# current client build
+client/build/
+
+# npm errors file
 npm-debug.log

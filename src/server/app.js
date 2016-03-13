@@ -1,15 +1,33 @@
 'use strict';
 
 import express from 'express';
-import mongoose from 'mongoose';
-import router from './routes/api';
+import mongoMiddleware from './middleware/mongo';
+import serverMiddleware from './middleware/server';
+import Promise from 'bluebird';
 
-let app = express();
+const app = express();
+let isAppStarted = false;
 
-mongoose.connect('mongodb://127.0.0.1:27017/shop');
+app.start = () => {
+    if(!isAppStarted) {
+        isAppStarted = true;
+        Promise.all([
+            serverMiddleware(app),
+            mongoMiddleware(app)
+        ]).then(() => {
+            if (process.send) {
+                process.send('online');
+            }
+        }, (error) => {
+            console.error(error);
+        });
+    }
+};
 
-app.use('/api/v1', router);
-app.listen('3003', function() {
-		console.log('server is started on port 3000');
-	}
-);
+if (!module.parent) {
+    try {
+        app.start();
+    } catch(e) {}
+}
+
+module.exports = app;
