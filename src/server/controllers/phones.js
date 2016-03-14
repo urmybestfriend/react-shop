@@ -14,8 +14,6 @@ const getAll = (req, res) => {
 
 const add = (req, res) => {
     let {phone} = req.body;
-    console.log('phone', phone);
-    console.log('req.body', req.body);
     let phoneModel = new PhoneModel(phone);
     phoneModel.save(function(err, docs) {
         if(err) {
@@ -23,7 +21,6 @@ const add = (req, res) => {
             res.send({error: err});
         }
         else {
-            console.log(docs);
             res.send({status: 'ok'});
         }
     });
