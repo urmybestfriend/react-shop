@@ -7,6 +7,7 @@
     "start": "node ./webpack.js",
     "add-db": "node ./src/server/init_database.js",
     "build": "./node_modules/.bin/webpack --config ./webpack/webpack.config.js",
+    "add-db": "node ./init_db.js",
     "clean": "rm -r ./client/build"
   },
   "repository": {

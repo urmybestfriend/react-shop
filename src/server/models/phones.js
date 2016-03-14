@@ -1,8 +1,9 @@
 'use strict';
 
 import mongoose from 'mongoose';
-import async from 'async';
-import _ from 'lodash';
+import hookFunc from '../helpers/hookFunc';
+
+const PHONE_SCHEMA_NAME = 'Phone';
 
 let PhoneSchema = new mongoose.Schema({
 	mark: { type: String, required: true, default: '' },
@@ -22,4 +23,8 @@ let PhoneSchema = new mongoose.Schema({
 
 PhoneSchema.plugin(require('mongoose-timestamp'));
 
-export default mongoose.model('Phone', PhoneSchema);
+PhoneSchema.pre('save', function(next, done) {
+    hookFunc(next, done, this, PHONE_SCHEMA_NAME);
+})
+
+export default mongoose.model(PHONE_SCHEMA_NAME, PhoneSchema);
