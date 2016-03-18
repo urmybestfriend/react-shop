@@ -5,10 +5,10 @@
   "main": "index.html",
   "scripts": {
     "start": "node ./webpack.js",
-    "add-db": "node ./src/server/init_database.js",
     "build": "./node_modules/.bin/webpack --config ./webpack/webpack.config.js",
     "add-db": "node ./init_db.js",
-    "clean": "rm -r ./client/build"
+    "clean": "rm -r ./client/build",
+    "unit": "mocha --timeout 15000 --require=\"mocha-inject.js\" --compilers js:babel-core/register \"src/**/__tests__/**/*.spec.js\""
   },
   "repository": {
     "type": "git",
