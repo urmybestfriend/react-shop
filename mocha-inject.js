@@ -1,10 +1,5 @@
 'use strict';
 
-delete process.env.BROWSER;
-process.env.NODE_ENV = 'test';
-process.env.NODE_PATH = 'src';
-process.env.SHOP = 'test';
-
 require('module').Module._initPaths();
 
 import chai from 'chai';
