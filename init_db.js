@@ -2,14 +2,14 @@
 
 require('babel-core/register');
 
-var mongoose = require('mongoose');
-var env = require('./env');
-var models = require('./src/server/models').default;
+var mongoose = require('mongoose'),
+	env = require('./env'),
+	models = require('./src/server/models').default;
 
 //data
-var phones = require('./init_data/phones');
-var computers = require('./init_data/computers');
-var printers = require('./init_data/printers');
+var phones = require('./init_data/phones'),
+	computers = require('./init_data/computers'),
+	printers = require('./init_data/printers');
 
 mongoose.connection.once('open', function () {
 

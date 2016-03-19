@@ -3,8 +3,9 @@
 var getRandomInt = require('./getRandomInt');
 
 module.exports = function(model, number) {
-	var items = [];
-	var transformed;
+	var items = [],
+		transformed;
+
 	for(var i = 0; i < number; i++) {
 		transformed = {};
 		Object.keys(model).forEach(function(key) {
