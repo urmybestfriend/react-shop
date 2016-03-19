@@ -1,16 +1,17 @@
 'use strict';
 
+var getRandomInt = require('./getRandomInt');
+
 module.exports = function(model, number) {
-	console.log(model, number);
 	var items = [];
 	var transformed;
 	for(var i = 0; i < number; i++) {
 		transformed = {};
 		Object.keys(model).forEach(function(key) {
-			transformed[key] = model[key]();
+			var randIndex = getRandomInt(0, model[key].length - 1);
+			transformed[key] = model[key][randIndex];
 		});
 		items.push(transformed);
 	}
-	console.log(items);
 	return items;
 }
