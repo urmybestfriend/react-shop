@@ -5,6 +5,7 @@ import { Router, useRouterHistory } from 'react-router';
 import { createHashHistory } from 'history';
 import configureStore from './store/configureStore';
 import routes from './routes';
+import 'styles/index.scss';
 
 const history = useRouterHistory(createHashHistory)({ queryKey: false });
 const store = configureStore();
