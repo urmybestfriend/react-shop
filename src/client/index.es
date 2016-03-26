@@ -2,23 +2,19 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RouteActions from 'actions/router_actions';
-import store from 'store/app_store';
-import router from 'router/router';
-import 'style/index.scss';
+import { Provider } from 'react-redux';
+import { Router, useRouterHistory } from 'react-router';
+import { createHashHistory } from 'history';
+import configureStore from './store/configureStore';
+import routes from './routes';
+import 'styles/index.scss';
 
-(() => {
-    let routeHandler = null;
-    const reactDomElement = document.getElementById('react-container');
+const history = useRouterHistory(createHashHistory)({ queryKey: false });
+const store = configureStore();
 
-    store.subscribe(() => {
-        if (routeHandler != null) {
-            ReactDOM.render(React.createElement(routeHandler, { appState: store.getState() }), reactDomElement);
-        }
-    });
-
-    router.run((Handler, routerState) => {
-        routeHandler = Handler;
-        RouteActions.updateRoute(routerState);
-    });
-})();
+ReactDOM.render(
+  <Provider store={store}>
+    <Router history={history} routes={routes} />
+  </Provider>,
+  document.getElementById('react-container')
+);

@@ -1,3 +1,4 @@
+'use strict';
 
 var Webpack = require('webpack'),
     WebpackDevServer = require('webpack-dev-server'),
