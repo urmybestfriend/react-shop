@@ -1,3 +1,5 @@
+'use strict';
+
 import expect from 'expect';
 import { items } from 'reducers/items';
 

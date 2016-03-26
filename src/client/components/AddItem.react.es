@@ -1,11 +1,10 @@
+'use strict';
+
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { reset } from 'redux-form';
 
-/* component styles */
-import { styles } from './styles.scss';
-
-export class AddItem extends Component {
+export default class AddItem extends Component {
   static propTypes = {
     dispatch: React.PropTypes.func,
     fields: React.PropTypes.object.isRequired,
@@ -34,7 +33,7 @@ export class AddItem extends Component {
     } = this.props;
 
     return (
-      <form className={styles} onSubmit={this.onAdd}>
+      <form onSubmit={this.onAdd}>
         <div className="form-group">
           <input
             type="text"

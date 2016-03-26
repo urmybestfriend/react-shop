@@ -1,3 +1,5 @@
+'use strict';
+
 export function addItem(fields) {
   return {
     type: 'ADD_ITEM',

@@ -1,3 +1,5 @@
+'use strict';
+
 import { items } from '../items';
 
 const initialState = {

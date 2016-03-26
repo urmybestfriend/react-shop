@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+'use strict';
 
-/* component styles */
-import { styles } from './styles.scss';
+import React, { Component } from 'react';
+import { Image, ResponsiveEmbed } from 'react-bootstrap';
 
 /* images */
 const reactjs = require('./files/reactjs.png');
@@ -14,55 +14,67 @@ const mocha = require('./files/mocha.png');
 export class Tools extends Component {
   render() {
     return (
-      <section className={`${styles}`}>
+      <section>
         <div className="container">
 
           <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+            <div>
               <h2>
-                Boilerplate contains
+                Project contains
               </h2>
             </div>
           </div>
 
           <div className="row">
-            <div className="col-xs-6 col-sm-2 col-md-2 col-lg-2 tool">
-              <img src={reactjs} />
+            <div style={{width: 150, height: 'auto'}}>
+              <ResponsiveEmbed a16by9>
+                <embed src={reactjs} />
+              </ResponsiveEmbed>
               <h4>
                 React
               </h4>
             </div>
 
-            <div className="col-xs-6 col-sm-2 col-md-2 col-lg-2 tool">
-              <img src={redux} />
+            <div style={{width: 150, height: 'auto'}}>
+              <ResponsiveEmbed a16by9>
+                <embed src={redux} />
+              </ResponsiveEmbed>
               <h4>
                 Redux
               </h4>
             </div>
 
-            <div className="col-xs-6 col-sm-2 col-md-2 col-lg-2 tool">
-              <img src={babel} />
+            <div style={{width: 150, height: 'auto'}}>
+              <ResponsiveEmbed a16by9>
+                <embed src={babel} />
+              </ResponsiveEmbed>
               <h4>
                 Babel
               </h4>
             </div>
 
-            <div className="col-xs-6 col-sm-2 col-md-2 col-lg-2 tool">
-              <img src={webpack} />
+            <div style={{width: 150, height: 'auto'}}>
+              <ResponsiveEmbed a16by9>
+                <embed src={webpack} />
+              </ResponsiveEmbed>
               <h4>
                 Webpack
               </h4>
             </div>
 
-            <div className="col-xs-6 col-sm-2 col-md-2 col-lg-2 tool">
-              <img src={bootstrap} />
+            <div style={{width: 150, height: 'auto'}}>
+              <ResponsiveEmbed a16by9>
+                <embed src={bootstrap} />
+              </ResponsiveEmbed>
               <h4>
                 Bootstrap
               </h4>
             </div>
 
-            <div className="col-xs-6 col-sm-2 col-md-2 col-lg-2 tool">
-              <img src={mocha} />
+            <div style={{width: 150, height: 'auto'}}>
+              <ResponsiveEmbed a16by9>
+                <embed src={mocha} />
+              </ResponsiveEmbed>
               <h4>
                 Mocha
               </h4>

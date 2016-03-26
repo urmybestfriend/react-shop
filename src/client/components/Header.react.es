@@ -1,8 +1,10 @@
+'use strict';
+
 import React from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Input, Button } from 'react-bootstrap';
 import { Link } from 'react-router'
 
-export class Header extends React.Component {
+export default class Header extends React.Component {
     render() {
         return (
           <div className="container">
