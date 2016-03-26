@@ -1,35 +1,35 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
+import React from 'react';
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Input, Button } from 'react-bootstrap';
+import { Link } from 'react-router'
 
-export class Header extends Component {
-  render() {
-    return (
-      <div className="container">
-        <div className="row">
-          <div className="col-xs-5 col-sm-3 col-md-3 col-lg-3 logo">
-            <Link to="/">
-              Redux Easy Boilerplate
-            </Link>
-          </div>
-
-          <div className="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-            <nav>
+export class Header extends React.Component {
+    render() {
+        return (
+          <div className="container">
+              <Navbar inverse>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <a href="#">Main</a>
+            </Navbar.Brand>
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav>
+              <Link to="/">
+                Go to Main page
+              </Link>
+              <Link to="/phones">
+                Go to Phones
+              </Link>
               <Link to="/home" activeClassName="active">
-                Home
+                Go to Home
               </Link>
               <Link to="/list" activeClassName="active">
-                Redux
+                Go to List of technologies
               </Link>
-            </nav>
-          </div>
-
-          <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4 hidden-xs text-right">
-            <a href="https://github.com/anorudes/redux-easy-boilerplate">
-              Fork me on GitHub
-            </a>
-          </div>
-        </div>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
       </div>
-    );
-  }
+        );
+    }
 }

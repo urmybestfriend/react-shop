@@ -5,7 +5,7 @@ import { Route, IndexRoute } from 'react-router';
 import { App } from 'containers/App';
 import { Home } from 'containers/Home';
 import { List } from 'containers/List';
-import { Phones } from 'containers/Phones';
+import Phones from 'containers/Phones';
 
 export default (
   <Route path="/" component={App}>
