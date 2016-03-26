@@ -35,7 +35,7 @@ const initialState = {
   }, {
     text: 'Server-side rendering',
     done: false,
-  }],
+  }]
 };
 
 export function items(state = initialState, action) {
