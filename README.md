@@ -35,7 +35,7 @@ npm test
 
 
 ### About
-* Project represents internet shop. It can easy help people to understand above mentioned technologies. Or just use it as boilerplate in their projects*
+* Project represents internet shop. It can easy help people to understand above mentioned technologies. Or just use it as boilerplate in their projects
 
 **_Opened for PR's_** :+1:
 
