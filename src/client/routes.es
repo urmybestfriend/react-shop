@@ -1,11 +1,13 @@
+'use strict';
+
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 /* containers */
-import { App } from 'containers/App';
-import { Home } from 'containers/Home';
-import { List } from 'containers/List';
-import Phones from 'containers/Phones';
+import App from 'containers/AppContainer.react';
+import Home from 'containers/HomeContainer.react';
+import List from 'containers/ListContainer.react';
+import Phones from 'containers/PhonesContainer.react';
 
 export default (
   <Route path="/" component={App}>

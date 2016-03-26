@@ -1,3 +1,5 @@
+'use strict';
+
 export function addPhone(fields) {
   return {
     type: 'ADD_PHONE',

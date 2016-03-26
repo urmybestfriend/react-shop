@@ -1,5 +1,6 @@
+'use strict';
+
 import React, { Component } from 'react';
-import DocumentMeta from 'react-document-meta';
 import {
   Input,
   Button,
@@ -14,19 +15,7 @@ import {
 import { TopImage } from 'components/TopImage';
 import { Tools } from 'components/Tools';
 
-const metaData = {
-  title: 'Redux Easy Boilerplate',
-  description: 'Start you project easy and fast with modern tools',
-  canonical: 'http://example.com/path/to/page',
-  meta: {
-    charset: 'utf-8',
-    name: {
-      keywords: 'react,meta,document,html,tags',
-    },
-  },
-};
-
-export class Home extends Component {
+export default class Home extends Component {
   render() {
     return (
       <section>
@@ -54,7 +43,6 @@ export class Home extends Component {
             </Panel>
           </Accordion>
         </div>
-        <DocumentMeta {...metaData} />
         <TopImage />
         <Tools />
       </section>

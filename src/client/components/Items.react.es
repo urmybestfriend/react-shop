@@ -1,9 +1,8 @@
+'use strict';
+
 import React, { Component } from 'react';
 
-/* component styles */
-import { styles } from './styles.scss';
-
-export class Items extends Component {
+export default class Items extends Component {
 
   static propTypes = {
     items: React.PropTypes.array,
@@ -24,7 +23,7 @@ export class Items extends Component {
     const { items } = this.props;
 
     return (
-      <div className={styles}>
+      <div>
         {!items.length && <span>Array is empty</span>}
         {
           items.map((item, index) =>

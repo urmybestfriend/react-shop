@@ -1,8 +1,7 @@
+'use strict';
+
 import React, { Component } from 'react';
 import LoadingOrderAnimation from 'react-loading-order-with-animation';
-
-/* component styles */
-// import { styles } from './styles.scss';
 
 export class TopImage extends Component {
 
@@ -22,7 +21,7 @@ export class TopImage extends Component {
                 wait={700}
               >
                 <h1 className="title">
-                  Redux Easy Boilerplate
+                  Welcome to our shop!!!
                 </h1>
               </LoadingOrderAnimation>
               <LoadingOrderAnimation animation="fade-in"
@@ -32,7 +31,7 @@ export class TopImage extends Component {
                 wait={900}
               >
                 <p>
-                  Start your project easy and fast with modern tools
+                  Start spend your money! :)
                 </p>
               </LoadingOrderAnimation>
             </div>
