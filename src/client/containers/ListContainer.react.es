@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 
 import Items from 'components/Items.react';
 import AddItem from 'components/AddItem.react';
+import Tools from 'components/Tools';
 
 /* actions */
 import * as actionCreators from 'actions/items';
@@ -24,25 +25,15 @@ export default class List extends Component {
     return (
       <section>
         <div className="container">
-
           <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6
-                            col-md-offset-3 col-lg-offset-3">
-              <h1>
-                Redux
-              </h1>
-            </div>
-          </div>
-
-          <div className="row">
+          <Tools/>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6
                             col-md-offset-3 col-lg-offset-3">
               <h2>
-                Boilerplate contains:
+                Shop contains technologies:
               </h2>
               <Items {...this.props} />
             </div>
-
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6
                             col-md-offset-3 col-lg-offset-3">
               <AddItem {...this.props} />
