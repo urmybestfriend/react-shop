@@ -10,9 +10,8 @@ export function phones(state = initialState, action) {
     return {
       ...state,
       phones: [
-        ...state.phones, {
-          text: action.fields.name.value,
-        },
+        ...state.phones, 
+        action.phone
       ],
     };
 
@@ -25,7 +24,7 @@ export function phones(state = initialState, action) {
       ],
     };
 
-  case 'GET_ALL':
+  case 'GET_ALL_PHONES':
     return {
       ...state,
       phones: action.phones,

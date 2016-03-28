@@ -2,11 +2,12 @@
 
 import { items } from '../items';
 
-const initialState = {
-  items: [],
-};
-
 describe('Items reducer:', () => {
+
+  const initialState = {
+    items: []
+  };
+
   it('should return the initial state', () => {
     expect(
       items(initialState, {})
@@ -14,7 +15,7 @@ describe('Items reducer:', () => {
   });
 
   it('should handle ADD', () => {
-    const stateAfterAdd = {
+    const expectedState = {
       items: [{
         text: 'test'
       }],
@@ -25,7 +26,7 @@ describe('Items reducer:', () => {
         type: 'ADD_ITEM',
         fields: fields,
       })
-    ).to.deep.equal(stateAfterAdd);
+    ).to.deep.equal(expectedState);
   });
 
   it('should handle DELETE', () => {

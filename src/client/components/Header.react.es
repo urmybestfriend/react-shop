@@ -38,6 +38,11 @@ export default class Header extends React.Component {
                       Go Home
                     </Link>
                   </MenuItem>
+                  <MenuItem eventKey={3.5}>
+                    <Link to="/example" activeClassName="active">
+                      Simplest example of redux lifecycle
+                    </Link>
+                  </MenuItem>
                   <MenuItem divider />
                 </NavDropdown>
               </Nav>
