@@ -6,12 +6,18 @@ const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
 import request from 'utils/request';
 
 export function increment() {
-	//let {data} = await request.get('phones/getAll', {});
+	return dispatch => {
+		request.get('phones/getAll', {}).then(({data}) => {
+			let length = data.length;
+			dispatch({ type: INCREMENT_COUNTER, number: length });
+		});
+
+	}
   	return { type: INCREMENT_COUNTER };
 }
 
 export function decrement() {
 	return (dispatch) => {
-		dispatch({ type: DECREMENT_COUNTER });
+		dispatch({ type: DECREMENT_COUNTER, number: 10 });
 	};
 }

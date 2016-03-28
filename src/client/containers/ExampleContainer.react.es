@@ -7,7 +7,6 @@ import * as counterActions from 'actions/exampleActions';
 import { Button } from 'react-bootstrap';
 
 function mapStateToProps(state) {
-	console.log('!!!!!!!!!! state', state);
   return {
     counter: state.example.counter,
   };
@@ -23,7 +22,6 @@ class HomeRoute extends React.Component {
   static propTypes: {[key: string]: Function};
 
   render() {
-  	console.log('!!!!!!!!! props', this.props);
     return (
       <div styleName="container">
 
