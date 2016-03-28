@@ -31,6 +31,7 @@ npm test
 - [x] Mongoose
 - [x] react-bootstrap
 - [x] react-redux
+- [x] sass
 - [x] and other ...
 
 
