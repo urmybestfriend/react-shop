@@ -1,7 +1,6 @@
 'use strict';
 
-const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
-const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
+import types from 'constants/ActionTypes/Example';
 
 const initialState = {
   counter: 0,
@@ -9,12 +8,12 @@ const initialState = {
 
 export function example( state = initialState, action ) {
   switch (action.type) {
-  case INCREMENT_COUNTER:
+  case types.INCREMENT_COUNTER:
     return {
       ...state,
       counter: state.counter + 1
     };
-  case DECREMENT_COUNTER:
+  case types.DECREMENT_COUNTER:
     return {
       ...state,
       counter: state.counter - 1

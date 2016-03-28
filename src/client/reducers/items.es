@@ -1,5 +1,7 @@
 'use strict';
 
+import types from 'constants/ActionTypes/Items';
+
 const initialState = {
   items: [{
     text: 'React',
@@ -42,7 +44,7 @@ const initialState = {
 
 export function items(state = initialState, action) {
   switch (action.type) {
-  case 'ADD_ITEM':
+  case types.ADD_ITEM:
     return {
       ...state,
       items: [
@@ -52,7 +54,7 @@ export function items(state = initialState, action) {
       ],
     };
 
-  case 'DELETE_ITEM':
+  case types.DELETE_ITEM:
     return {
       ...state,
       items: [

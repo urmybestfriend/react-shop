@@ -1,12 +1,14 @@
 'use strict';
 
+import types from 'constants/ActionTypes/Phones';
+
 const initialState = {
   phones: []
 };
 
 export function phones(state = initialState, action) {
   switch (action.type) {
-  case 'ADD_PHONE':
+  case types.ADD_PHONE:
     return {
       ...state,
       phones: [
@@ -15,7 +17,7 @@ export function phones(state = initialState, action) {
       ],
     };
 
-  case 'DELETE_PHONE':
+  case types.DELETE_PHONE:
     return {
       ...state,
       phones: [
@@ -24,7 +26,7 @@ export function phones(state = initialState, action) {
       ],
     };
 
-  case 'GET_ALL_PHONES':
+  case types.GET_ALL_PHONES:
     return {
       ...state,
       phones: action.phones,
