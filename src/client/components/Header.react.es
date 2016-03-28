@@ -24,16 +24,21 @@ export default class Header extends React.Component {
                     </Link>
                   </MenuItem>
                   <MenuItem eventKey={3.2}>
-                    <Link to="/home" activeClassName="active">
-                      Go to Home
+                    <Link to="/computers">
+                      Go to Computers
                     </Link>
-                  </MenuItem>
-                  <MenuItem divider />
+                  </MenuItem>                  
                   <MenuItem eventKey={3.3}>
                     <Link to="/list" activeClassName="active">
                       Go to List of technologies
                     </Link>
                   </MenuItem>
+                  <MenuItem eventKey={3.4}>
+                    <Link to="/home" activeClassName="active">
+                      Go Home
+                    </Link>
+                  </MenuItem>
+                  <MenuItem divider />
                 </NavDropdown>
               </Nav>
               <Navbar.Form pullRight>
