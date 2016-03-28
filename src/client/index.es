@@ -13,8 +13,8 @@ const history = useRouterHistory(createHashHistory)({ queryKey: false });
 const store = configureStore();
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router history={history} routes={routes} />
-  </Provider>,
-  document.getElementById('react-container')
+	<Provider store={store}>
+		<Router history={history} routes={routes} />
+	</Provider>,
+	document.getElementById('react-container')
 );
