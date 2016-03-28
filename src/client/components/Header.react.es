@@ -38,7 +38,7 @@ export default class Header extends React.Component {
               </Nav>
               <Navbar.Form pullRight>
                 <Input type="text" placeholder="Search..." className="header__search-input"/>
-                <Button bsStyle="success" type="search">Search</Button>
+                <Button bsStyle="success" type="submit">Search</Button>
               </Navbar.Form>
             </Navbar>
           </div>
