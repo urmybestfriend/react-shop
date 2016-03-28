@@ -12,12 +12,12 @@ import Example from 'containers/ExampleContainer.react';
 import Computers from 'containers/ComputersContainer.react';
 
 export default (
-  <Route path="/" component={App}>
-    <IndexRoute component={Home} />
-    <Route path="list" component={List} />
-    <Route path="phones" component={Phones} />
-    <Route path="computers" component={Computers} />
-    <Route path="example" component={Example} />
-    <Route status={404} path="*" component={Home} />
-  </Route>
+	<Route path="/" component={App}>
+		<IndexRoute component={Home} />
+		<Route path="list" component={List} />
+		<Route path="phones" component={Phones} />
+		<Route path="computers" component={Computers} />
+		<Route path="example" component={Example} />
+		<Route status={404} path="*" component={Home} />
+	</Route>
 );

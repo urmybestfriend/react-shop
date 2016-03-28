@@ -8,12 +8,12 @@ import { example } from './example';
 import { computers } from './computers';
 
 const rootReducer = combineReducers({
-  form: formReducer,
-  /* your reducers */
-  items,
-  phones,
-  example,
-  computers
+	form: formReducer,
+	/* your reducers */
+	items,
+	phones,
+	example,
+	computers
 });
 
 export default rootReducer;
