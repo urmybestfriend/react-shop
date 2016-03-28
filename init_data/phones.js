@@ -17,4 +17,4 @@ var phoneModel = {
     price: [200, 220, 240, 260, 280, 300, 330, 360, 390, 420, 450, 480, 500, 540, 560, 580, 600, 620, 660, 710, 730, 800]
 };
 
-module.exports = generator(phoneModel, 250);
+module.exports = generator(phoneModel, 20);

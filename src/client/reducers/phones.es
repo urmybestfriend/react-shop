@@ -25,6 +25,12 @@ export function phones(state = initialState, action) {
       ],
     };
 
+  case 'GET_ALL':
+    return {
+      ...state,
+      phones: action.phones,
+    };
+
   default:
     return state;
   }

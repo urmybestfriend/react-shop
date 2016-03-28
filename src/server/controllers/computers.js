@@ -1,6 +1,6 @@
 'use strict';
 
-import ComputerModel from '../models/phones';
+import ComputerModel from '../models/computers';
 
 const getAll = (req, res) => {
     ComputerModel.find({}, function(err, docs) {
