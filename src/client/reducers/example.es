@@ -12,12 +12,12 @@ export function example( state = initialState, action ) {
   case INCREMENT_COUNTER:
     return {
       ...state,
-      counter: state.counter + action.number,
+      counter: state.counter + 1
     };
   case DECREMENT_COUNTER:
     return {
       ...state,
-      counter: state.counter - action.number,
+      counter: state.counter - 1
     };
   default:
     return state;
