@@ -21,4 +21,4 @@ var computerModel = {
     price: [300, 340, 380, 420, 460, 495, 510, 530, 560, 580, 640, 670, 725, 760, 780, 840, 850, 860, 920, 940, 1020, 1150, 1280, 1500]
 };
 
-module.exports = generator(computerModel, 200);
+module.exports = generator(computerModel, 30);

@@ -13,34 +13,32 @@ import * as actionCreators from 'actions/items';
 
 
 @connect(
-  state => state.items,
-  dispatch => bindActionCreators(actionCreators, dispatch)
+    state => state.items,
+    dispatch => bindActionCreators(actionCreators, dispatch)
 )
 export default class List extends Component {
-  constructor(props) {
-    super(props);
-  }
+    constructor(props) {
+        super(props);
+    }
 
-  render() {
-    return (
-      <section>
-        <div className="container">
-          <div className="row">
-          <Tools/>
-            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6
-                            col-md-offset-3 col-lg-offset-3">
-              <h2>
-                Shop contains technologies:
-              </h2>
-              <Items {...this.props} />
-            </div>
-            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6
-                            col-md-offset-3 col-lg-offset-3">
-              <AddItem {...this.props} />
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
+    render() {
+        return (
+            <section>
+                <div className="container">
+                    <div className="row">
+                        <Tools/>
+                        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+                            <h2>
+                                Shop contains technologies:
+                            </h2>
+                            <Items {...this.props} />
+                        </div>
+                        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+                            <AddItem {...this.props} />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+    }
 }

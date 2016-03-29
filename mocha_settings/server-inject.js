@@ -1,5 +1,7 @@
 'use strict';
 
+process.env.NODE_PATH = 'src/server';
+
 require('module').Module._initPaths();
 
 import chai from 'chai';

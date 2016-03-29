@@ -14,4 +14,4 @@ var printerModel = {
     price: [80, 110, 130, 140, 155, 160, 187, 210, 220, 254, 270, 310, 340],
 };
 
-module.exports = generator(printerModel, 140);
+module.exports = generator(printerModel, 15);
