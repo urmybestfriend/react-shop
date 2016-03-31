@@ -34,6 +34,12 @@ npm test
 - [x] sass
 - [x] and other ...
 
+### Fill db
+
+```sh
+npm run add-db
+```
+
 
 ### About
 * Project represents internet shop. It can easy help people to understand above mentioned technologies. Or just use it as boilerplate in their projects
