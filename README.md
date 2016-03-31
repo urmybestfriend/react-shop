@@ -19,6 +19,12 @@ npm start
 npm test
 ```
 
+### Fill db
+
+```sh
+npm run add-db
+```
+
 ### Technologies
 
 - [x] React
@@ -33,12 +39,6 @@ npm test
 - [x] react-redux
 - [x] sass
 - [x] and other ...
-
-### Fill db
-
-```sh
-npm run add-db
-```
 
 
 ### About
