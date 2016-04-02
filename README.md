@@ -42,7 +42,7 @@ npm run add-db
 
 
 ### About
-* Project represents internet shop. It can easy help people to understand above mentioned technologies. Or just use it as boilerplate in their projects
+* Project represents internet shop. It can easy help people to understand above mentioned technologies. Or just use it as boilerplate in their projects.
 
 **_Open for PRs_** :+1:
 
