@@ -10,6 +10,7 @@
 
 ```sh
 npm install
+npm run add-db (for adding initial data)
 npm start
 ```
 
