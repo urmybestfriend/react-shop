@@ -3,24 +3,25 @@
 import request from 'utils/request';
 import types from 'constants/ActionTypes/Computers';
 
-export function getAllComputers() {
-    const query = `query{computers {
-        mark
-        model
-        color
-        wifi
-        isLaptop
-        diagonal
-        coresNumber
-        usb2
-        usb3
-        ram
-        memory
-        videocard
-        videomemory
-        processor
-        operatingSystem
-        price
+export function getAllComputers(mark = '') {
+    const searchByMark = mark ? `(mark:"${mark}")` : '',
+        query = `query{computers ${searchByMark} {
+            mark
+            model
+            color
+            wifi
+            isLaptop
+            diagonal
+            coresNumber
+            usb2
+            usb3
+            ram
+            memory
+            videocard
+            videomemory
+            processor
+            operatingSystem
+            price
         }}`;
 
     return dispatch => {
