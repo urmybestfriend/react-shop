@@ -12,6 +12,6 @@
 	},
 	"app": {
     	"title": "Shop",
-    	"api": "/"
+    	"api": "/api/v1"
     }
 }

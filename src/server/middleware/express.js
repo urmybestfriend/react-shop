@@ -7,6 +7,8 @@ import bodyParser from 'body-parser';
 import apiRouter from '../routes/api';
 import staticsRouter from '../routes/statics';
 import env from '../../../env';
+import GraphQLHTTP from 'express-graphql';
+import schema from '../schema/schema';
 
 const errorHandler = (err, req, res, next) => {
     let errData = err.message ? err.message : err;
@@ -43,6 +45,11 @@ export default (app) => {
     app.use(bodyParser.json());
 
     app.use(hpp());
+    app.use(env.get('app:api'), GraphQLHTTP({
+            schema,
+            graphiql: true // TODO: enable only for dev
+        })
+    );
     app.use('/', apiRouter);
     app.use('/', staticsRouter);
 
