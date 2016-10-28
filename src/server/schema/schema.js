@@ -56,7 +56,6 @@ let schema = new GraphQLSchema({
                 resolve: (root, {mark}) => {
                     return new Promise((resolve, reject) => {
                         PhoneModel.find({}, (err, phones) => {
-                            console.log(err, phones);
                             if (!err){
                                 if (mark) {
                                     mark = mark.trim().toLowerCase();
@@ -156,6 +155,74 @@ let schema = new GraphQLSchema({
                             }
                             else {
                                 resolve(newComputerModel);
+                            }
+                        });
+                    });
+                }
+            },
+            insertPhone: {
+                type: PhoneType,
+                args: {
+                    mark: {
+                        type: new GraphQLNonNull(GraphQLString),
+                        description: 'The mark of phone.'
+                    },
+                    model: {
+                        type: new GraphQLNonNull(GraphQLString),
+                        description: 'The model of phone.'
+                    },
+                    color: {
+                        type: new GraphQLNonNull(GraphQLString),
+                        description: 'The color of phone.'
+                    },
+                    wifi: {
+                        type: new GraphQLNonNull(GraphQLString),
+                        description: 'The wifi of phone.'
+                    },
+                    gps: {
+                        type: new GraphQLNonNull(GraphQLBoolean),
+                        description: 'The gps of phone.'
+                    },
+                    coresNumber: {
+                        type: new GraphQLNonNull(GraphQLInt),
+                        description: 'The coresNumber of phone.'
+                    },
+                    ram: {
+                        type: new GraphQLNonNull(GraphQLInt),
+                        description: 'The ram of phone.'
+                    },
+                    memory: {
+                        type: new GraphQLNonNull(GraphQLInt),
+                        description: 'The memory of phone.'
+                    },
+                    camera: {
+                        type: new GraphQLNonNull(GraphQLInt),
+                        description: 'The camera of phone.'
+                    },
+                    diagonal: {
+                        type: new GraphQLNonNull(GraphQLFloat),
+                        description: 'The diagonal of phone.'
+                    },
+                    operatingSystem: {
+                        type: new GraphQLNonNull(GraphQLString),
+                        description: 'The operatingSystem of phone.'
+                    },
+                    price: {
+                        type: new GraphQLNonNull(GraphQLFloat),
+                        description: 'The price of phone.'
+                    }
+                },
+                resolve: (obj, newPhone ) => {
+                    return new Promise((resolve, reject) => {
+                        const newPhoneModel = new PhoneModel(newPhone);
+
+                        newPhoneModel.save(function(err, docs) {
+                            if(err) {
+                                console.log('error: ', err);
+                                reject({error: err});
+                            }
+                            else {
+                                resolve(newPhoneModel);
                             }
                         });
                     });
