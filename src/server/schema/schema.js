@@ -11,9 +11,12 @@ import {
 
 import { ComputerType } from './computerType';
 import { PhoneType } from './phoneType';
+import { PrinterType } from './printerType';
+
 
 import ComputerModel from '../models/computers';
 import PhoneModel from '../models/phones';
+import PrinterModel from '../models/printers';
 
 let schema = new GraphQLSchema({
     query: new GraphQLObjectType({
@@ -67,6 +70,31 @@ let schema = new GraphQLSchema({
                                 reject({error: err});
                             }
                         })
+                    });
+                }
+            },
+            printers: {
+                type: new GraphQLList(PrinterType),
+                args: {
+                    mark: {
+                        type: GraphQLString,
+                        description: 'The mark of printer for search.'
+                    }
+                },
+                resolve: (root, {mark}) => {
+                    return new Promise((resolve, reject) => {
+                        PrinterModel.find({}, (err, printers) => {
+                            if (!err) {
+                                if (mark) {
+                                    mark = mark.trim().toLowerCase();
+                                    printers = printers.filter(p => p.mark.toLowerCase() === mark);
+                                }
+
+                                resolve(printers);
+                            } else {
+                                reject({ error: err });
+                            }
+                        });
                     });
                 }
             }
@@ -223,6 +251,62 @@ let schema = new GraphQLSchema({
                             }
                             else {
                                 resolve(newPhoneModel);
+                            }
+                        });
+                    });
+                }
+            },
+            insertPrinter: {
+                type: PrinterType,
+                args: {
+                    mark: {
+                        type: new GraphQLNonNull(GraphQLString),
+                        description: 'The mark of printer.'
+                    },
+                    model: {
+                        type: new GraphQLNonNull(GraphQLString),
+                        description: 'The model of printer.'
+                    },
+                    color: {
+                        type: new GraphQLNonNull(GraphQLString),
+                        description: 'The color of printer.'
+                    },
+                    wifi: {
+                        type: new GraphQLNonNull(GraphQLString),
+                        description: 'The wifi of printer.'
+                    },
+                    isMFP: {
+                        type: new GraphQLNonNull(GraphQLBoolean),
+                        description: 'The isMFP of printer.'
+                    },
+                    isBlackWhite: {
+                        type: new GraphQLNonNull(GraphQLBoolean),
+                        description: 'The isBlackWhite of printer.'
+                    },
+                    pageVelocityPerMinute: {
+                        type: new GraphQLNonNull(GraphQLFloat),
+                        description: 'The pageVelocityPerMinute of printer.'
+                    },
+                    printTechnology: {
+                        type: new GraphQLNonNull(GraphQLString),
+                        description: 'The printTechnology of printer.'
+                    },
+                    price: {
+                        type: new GraphQLNonNull(GraphQLFloat),
+                        description: 'The price of printer.'
+                    }
+                },
+                resolve: (obj, newPrinter) => {
+                    return new Promise((resolve, reject) => {
+                        const newPrinterModel = new PrinterModel(newPrinter);
+
+                        newPrinterModel.save(function(err, docs) {
+                            if(err) {
+                                console.log('error: ', err);
+                                reject(err);
+                            }
+                            else {
+                                resolve(newPrinterModel);
                             }
                         });
                     });
