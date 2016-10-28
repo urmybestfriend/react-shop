@@ -3,10 +3,26 @@
 import request from 'utils/request';
 import types from 'constants/ActionTypes/Phones';
 
-export function getAllPhones() {
+export function getAllPhones(mark = '') {
+    const searchByMark = mark ? `(mark:"${mark}")` : '',
+        query = `query{phones ${searchByMark} {
+            mark
+            model
+            color
+            wifi
+            gps
+            coresNumber
+            ram
+            memory
+            camera
+            diagonal
+            operatingSystem
+            price
+        }}`;
+
     return dispatch => {
-        request.get('phones/getAll', {}).then(({data}) => {
-            dispatch({ type: types.GET_ALL_PHONES, phones: data });
+        request.get('/api/v1', {query}).then(({data}) => {
+            dispatch({ type: types.GET_ALL_PHONES, phones: data.phones });
         });
     };
 }

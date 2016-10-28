@@ -10,8 +10,10 @@ import {
 } from 'graphql';
 
 import { ComputerType } from './computerType';
+import { PhoneType } from './phoneType';
 
 import ComputerModel from '../models/computers';
+import PhoneModel from '../models/phones';
 
 let schema = new GraphQLSchema({
     query: new GraphQLObjectType({
@@ -40,6 +42,32 @@ let schema = new GraphQLSchema({
                                 resolve(docs);
                             }
                         });
+                    });
+                }
+            },
+            phones: {
+                type: new GraphQLList(PhoneType),
+                args: {
+                    mark: {
+                        type: GraphQLString,
+                        description: 'The mark of phone for search.'
+                    }
+                },
+                resolve: (root, {mark}) => {
+                    return new Promise((resolve, reject) => {
+                        PhoneModel.find({}, (err, phones) => {
+                            console.log(err, phones);
+                            if (!err){
+                                if (mark) {
+                                    mark = mark.trim().toLowerCase();
+                                    phones = phones.filter(p => p.mark.toLowerCase() === mark);
+                                }
+
+                                resolve(phones);
+                            } else {
+                                reject({error: err});
+                            }
+                        })
                     });
                 }
             }
