@@ -4,7 +4,6 @@ import path from 'path';
 import helmet from 'helmet';
 import hpp from 'hpp';
 import bodyParser from 'body-parser';
-import apiRouter from '../routes/api';
 import staticsRouter from '../routes/statics';
 import env from '../../../env';
 import GraphQLHTTP from 'express-graphql';
@@ -50,7 +49,6 @@ export default (app) => {
             graphiql: true // TODO: enable only for dev
         })
     );
-    app.use('/', apiRouter);
     app.use('/', staticsRouter);
 
     app.use(errorHandler);
