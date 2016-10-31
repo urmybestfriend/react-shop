@@ -1,39 +1,11 @@
 'use strict';
 
 import PhoneModel from '../models/phones';
+import commonCtrl from './common';
 
-const getAll = (mark) => {
-    return new Promise((resolve, reject) => {
-        PhoneModel.find({}, (err, phones) => {
-            if (!err){
-                if (mark) {
-                    mark = mark.trim().toLowerCase();
+const getAll = (mark) => commonCtrl.getAll(PhoneModel, mark);
 
-                    phones = phones.filter(p => p.mark.toLowerCase() === mark);
-                }
-
-                resolve(phones);
-            } else {
-                reject({ error: err });
-            }
-        })
-    });
-};
-
-const add = (phone) => {
-    return new Promise((resolve, reject) => {
-        const phoneModel = new PhoneModel(phone);
-
-        phoneModel.save(function(err, docs) {
-            if(!err) {
-                resolve(phoneModel);
-            }
-            else {
-                reject({ error: err });
-            }
-        });
-    });
-};
+const add = (phone) => commonCtrl.add(PhoneModel, phone);
 
 export default {
     getAll,
