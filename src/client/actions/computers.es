@@ -25,7 +25,7 @@ export function getAllComputers(mark = '') {
         }}`;
 
     return dispatch => {
-        request.get('/api/v1', {query}).then(({data}) => {
+        request.get('/', {query}).then(({data}) => {
             dispatch({ type: types.GET_ALL_COMPUTERS, computers: data.computers });
         });
     };

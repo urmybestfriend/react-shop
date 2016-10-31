@@ -21,7 +21,7 @@ export function getAllPhones(mark = '') {
         }}`;
 
     return dispatch => {
-        request.get('/api/v1', {query}).then(({data}) => {
+        request.get('/', {query}).then(({data}) => {
             dispatch({ type: types.GET_ALL_PHONES, phones: data.phones });
         });
     };
