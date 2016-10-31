@@ -2,27 +2,36 @@
 
 import PhoneModel from '../models/phones';
 
-const getAll = (req, res) => {
-    PhoneModel.find({}, function(err, docs) {
-        if(err) {
-            res.send({error: err});
-        } else {
-            res.send({data: docs});
-        }
+const getAll = (mark) => {
+    return new Promise((resolve, reject) => {
+        PhoneModel.find({}, (err, phones) => {
+            if (!err){
+                if (mark) {
+                    mark = mark.trim().toLowerCase();
+
+                    phones = phones.filter(p => p.mark.toLowerCase() === mark);
+                }
+
+                resolve(phones);
+            } else {
+                reject({ error: err });
+            }
+        })
     });
 };
 
-const add = (req, res) => {
-    let {phone} = req.body;
-    let phoneModel = new PhoneModel(phone);
-    phoneModel.save(function(err, docs) {
-        if(err) {
-            console.log('error: ', err);
-            res.send({error: err});
-        }
-        else {
-            res.send({status: 'ok'});
-        }
+const add = (phone) => {
+    return new Promise((resolve, reject) => {
+        const phoneModel = new PhoneModel(phone);
+
+        phoneModel.save(function(err, docs) {
+            if(!err) {
+                resolve(phoneModel);
+            }
+            else {
+                reject({ error: err });
+            }
+        });
     });
 };
 
