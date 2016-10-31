@@ -13,10 +13,14 @@ import { ComputerType } from './computerType';
 import { PhoneType } from './phoneType';
 import { PrinterType } from './printerType';
 
-
 import ComputerModel from '../models/computers';
 import PhoneModel from '../models/phones';
 import PrinterModel from '../models/printers';
+
+import computersCtrl from '../controllers/computers'
+import phonesCtrl from '../controllers/phones';
+import printersCtrl from '../controllers/printers';
+
 
 let schema = new GraphQLSchema({
     query: new GraphQLObjectType({
@@ -30,23 +34,7 @@ let schema = new GraphQLSchema({
                         type: GraphQLString
                     }
                 },
-                resolve: (root, {mark}) => {
-                    return new Promise((resolve, reject) => { // move this to separate file for manipulate data from db
-                        ComputerModel.find({}, function(err, docs) {
-                            if(err) {
-                                reject({error: err});
-                            } else {
-                                if (mark) {
-                                    const brand = mark.trim().toLowerCase();
-
-                                    docs = docs.filter(pc => pc.mark.toLowerCase() === brand);
-                                }
-
-                                resolve(docs);
-                            }
-                        });
-                    });
-                }
+                resolve: (root, { mark }) => computersCtrl.getAll(mark)
             },
             phones: {
                 type: new GraphQLList(PhoneType),
@@ -56,22 +44,7 @@ let schema = new GraphQLSchema({
                         description: 'The mark of phone for search.'
                     }
                 },
-                resolve: (root, {mark}) => {
-                    return new Promise((resolve, reject) => {
-                        PhoneModel.find({}, (err, phones) => {
-                            if (!err){
-                                if (mark) {
-                                    mark = mark.trim().toLowerCase();
-                                    phones = phones.filter(p => p.mark.toLowerCase() === mark);
-                                }
-
-                                resolve(phones);
-                            } else {
-                                reject({error: err});
-                            }
-                        })
-                    });
-                }
+                resolve: (root, { mark }) => phonesCtrl.getAll(mark)
             },
             printers: {
                 type: new GraphQLList(PrinterType),
@@ -81,22 +54,7 @@ let schema = new GraphQLSchema({
                         description: 'The mark of printer for search.'
                     }
                 },
-                resolve: (root, {mark}) => {
-                    return new Promise((resolve, reject) => {
-                        PrinterModel.find({}, (err, printers) => {
-                            if (!err) {
-                                if (mark) {
-                                    mark = mark.trim().toLowerCase();
-                                    printers = printers.filter(p => p.mark.toLowerCase() === mark);
-                                }
-
-                                resolve(printers);
-                            } else {
-                                reject({ error: err });
-                            }
-                        });
-                    });
-                }
+                resolve: (root, { mark }) => printersCtrl.getAll(mark)
             }
         }
     }),
@@ -172,21 +130,7 @@ let schema = new GraphQLSchema({
                         description: 'The price of computer'
                     }
                 },
-                resolve: (obj, newComputer ) => {
-                    return new Promise((resolve, reject) => { // Also must be moved to separate file, like and query
-                        const newComputerModel = new ComputerModel(newComputer);
-
-                        newComputerModel.save(function(err, docs) {
-                            if(err) {
-                                console.log('error: ', err);
-                                reject({error: err});
-                            }
-                            else {
-                                resolve(newComputerModel);
-                            }
-                        });
-                    });
-                }
+                resolve: (obj, computer ) => computersCtrl.add(computer)
             },
             insertPhone: {
                 type: PhoneType,
@@ -240,21 +184,7 @@ let schema = new GraphQLSchema({
                         description: 'The price of phone.'
                     }
                 },
-                resolve: (obj, newPhone ) => {
-                    return new Promise((resolve, reject) => {
-                        const newPhoneModel = new PhoneModel(newPhone);
-
-                        newPhoneModel.save(function(err, docs) {
-                            if(err) {
-                                console.log('error: ', err);
-                                reject({error: err});
-                            }
-                            else {
-                                resolve(newPhoneModel);
-                            }
-                        });
-                    });
-                }
+                resolve: (obj, phone) => phonesCtrl.add(phone)
             },
             insertPrinter: {
                 type: PrinterType,
@@ -296,21 +226,7 @@ let schema = new GraphQLSchema({
                         description: 'The price of printer.'
                     }
                 },
-                resolve: (obj, newPrinter) => {
-                    return new Promise((resolve, reject) => {
-                        const newPrinterModel = new PrinterModel(newPrinter);
-
-                        newPrinterModel.save(function(err, docs) {
-                            if(err) {
-                                console.log('error: ', err);
-                                reject(err);
-                            }
-                            else {
-                                resolve(newPrinterModel);
-                            }
-                        });
-                    });
-                }
+                resolve: (obj, printer) => printersCtrl.add(printer)
             }
         }
     })
