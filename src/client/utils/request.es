@@ -2,7 +2,7 @@
 
 import request from 'superagent';
 
-const API_URL = '';
+const API_URL = '/api/v1';
 const HEADERS = { Accept: 'application/json' };
 const setPrefix = (prefix) => {
     return (req) => {
