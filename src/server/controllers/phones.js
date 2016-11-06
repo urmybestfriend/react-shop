@@ -1,30 +1,11 @@
 'use strict';
 
 import PhoneModel from '../models/phones';
+import commonCtrl from './common';
 
-const getAll = (req, res) => {
-    PhoneModel.find({}, function(err, docs) {
-        if(err) {
-            res.send({error: err});
-        } else {
-            res.send({data: docs});
-        }
-    });
-};
+const getAll = (mark) => commonCtrl.getAll(PhoneModel, mark);
 
-const add = (req, res) => {
-    let {phone} = req.body;
-    let phoneModel = new PhoneModel(phone);
-    phoneModel.save(function(err, docs) {
-        if(err) {
-            console.log('error: ', err);
-            res.send({error: err});
-        }
-        else {
-            res.send({status: 'ok'});
-        }
-    });
-};
+const add = (phone) => commonCtrl.add(PhoneModel, phone);
 
 export default {
     getAll,

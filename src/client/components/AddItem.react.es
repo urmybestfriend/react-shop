@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { reset } from 'redux-form';
 
-export default class AddItem extends Component {
+class AddItem extends Component {
 
     static propTypes = {
         dispatch: React.PropTypes.func,
