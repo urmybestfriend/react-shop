@@ -30,6 +30,7 @@ npm run add-db
 
 - [x] React
 - [x] Redux
+- [x] GraphQL
 - [x] Immutable
 - [x] Babel 6
 - [x] Webpack
