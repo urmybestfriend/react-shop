@@ -1,6 +1,6 @@
 # Shop [![Build Status](https://travis-ci.org/yankouskia/Shop.svg?branch=master)](https://travis-ci.org/yankouskia/Shop)
 
-##Preparation
+## Preparation
 
 > Install nodejs
 
