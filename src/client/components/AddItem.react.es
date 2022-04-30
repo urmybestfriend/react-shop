@@ -13,6 +13,13 @@ class AddItem extends Component {
         addItem: React.PropTypes.func,
     };
 
+  
+
+  
+
+
+
+
     constructor(props) {
         super(props);
     }
